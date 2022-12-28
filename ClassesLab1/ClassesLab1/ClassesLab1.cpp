@@ -11,9 +11,9 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	LongLong ok = LongLong(23);
-	LongLong second = LongLong(-33);
+	LongLong ok = LongLong(5);
+	LongLong second = LongLong(5);
 
-	ok.minus(second);
+	ok.multi(second);
 	ok.ShowNumber();
 }
