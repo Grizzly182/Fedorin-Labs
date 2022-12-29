@@ -12,16 +12,12 @@ LongLong::LongLong(long num)
 		this->PositivePart = num;
 	}
 }
-
+#pragma region plus
 void LongLong::plus(LongLong num)
-{
-}
-
-void LongLong::minus(LongLong num)
 {
 	unsigned long number = num.getSingleNumber();
 	if (this->NegativePart > 0) {
-		this->NegativePart += number;
+		this->NegativePart -= number;
 	}
 	else if (this->PositivePart < number) {
 		unsigned long remaining = number - this->PositivePart;
@@ -32,7 +28,37 @@ void LongLong::minus(LongLong num)
 		this->PositivePart -= number;
 	}
 }
-
+#pragma endregion
+#pragma region minus
+void LongLong::minus(LongLong num)
+{
+	long number = num.getSingleNumber();
+	num.getNegativePart() > 0 ? number = 0 - number : number = number;
+	if (this->NegativePart > 0 && number < 0) {
+		unsigned long remaining = abs(number) - this->NegativePart;
+		this->NegativePart = 0;
+		this->PositivePart = remaining;
+	}
+	else if (this->NegativePart > 0) {
+		this->NegativePart += number;
+	}
+	else if (this->PositivePart < number && number < 0) {
+		this->PositivePart += abs(number);
+	}
+	else if (this->PositivePart < number && number > 0) {
+		unsigned long remaining = abs(number) - this->PositivePart;
+		this->PositivePart = 0;
+		this->NegativePart = remaining;
+	}
+	else if (this->PositivePart > 0 && number < 0) {
+		this->NegativePart -= number;
+	}
+	else {
+		this->PositivePart -= number;
+	}
+}
+#pragma endregion
+#pragma region multi
 void LongLong::multi(LongLong num)
 {
 	long first;
@@ -51,11 +77,12 @@ void LongLong::multi(LongLong num)
 		this->PositivePart = 0;
 	}
 }
-
+#pragma endregion
+#pragma region division
 void LongLong::division(LongLong num)
 {
 }
-
+#pragma endregion
 void LongLong::ShowNumber()
 {
 	if (this->NegativePart > 0) {
