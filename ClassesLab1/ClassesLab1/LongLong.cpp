@@ -15,17 +15,29 @@ LongLong::LongLong(long num)
 #pragma region plus
 void LongLong::plus(LongLong num)
 {
-	unsigned long number = num.getSingleNumber();
-	if (this->NegativePart > 0) {
-		this->NegativePart -= number;
+	long number = num.getSingleNumber();
+	num.getNegativePart() > 0 ? number = 0 - number : number = number;
+	if (this->NegativePart > 0 && number < 0) {
+		this->NegativePart += abs(number);
 	}
-	else if (this->PositivePart < number) {
-		unsigned long remaining = number - this->PositivePart;
+	else if (this->NegativePart > 0 && number > 0 && number < this->NegativePart) {
+		this->NegativePart -= abs(number);
+	}
+	else if (this->NegativePart > 0 && number > 0) {
+		unsigned long remaining = abs(number) - this->NegativePart;
+		this->NegativePart = 0;
+		this->PositivePart = remaining;
+	}
+	else if (this->PositivePart > 0 && number < 0 && abs(number) > this->PositivePart) {
+		unsigned long remaining = abs(number) - this->PositivePart;
 		this->PositivePart = 0;
 		this->NegativePart = remaining;
 	}
+	else if (this->PositivePart < abs(number) && number > 0) {
+		this->PositivePart += number;
+	}
 	else {
-		this->PositivePart -= number;
+		this->PositivePart += number;
 	}
 }
 #pragma endregion
@@ -83,7 +95,7 @@ void LongLong::division(LongLong num)
 {
 }
 #pragma endregion
-void LongLong::ShowNumber()
+void LongLong::Display()
 {
 	if (this->NegativePart > 0) {
 		std::cout << '-' << this->NegativePart;
@@ -103,7 +115,6 @@ unsigned long LongLong::getNegativePart()
 	return this->NegativePart;
 }
 
-// ×ÒÎ-ÒÎ ÑÒÐÀÍÍÎÅ
 unsigned long LongLong::getSingleNumber()
 {
 	return this->PositivePart + this->NegativePart;

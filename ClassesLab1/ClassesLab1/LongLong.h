@@ -10,7 +10,7 @@ public:
 	void minus(LongLong num);//Done
 	void multi(LongLong num);//Done
 	void division(LongLong num);//
-	void ShowNumber();//Done
+	void Display();//Done
 	unsigned long getPositivePart();//Done
 	unsigned long getNegativePart();//Done
 	unsigned long getSingleNumber();//Done

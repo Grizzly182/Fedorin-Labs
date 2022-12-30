@@ -1,3 +1,10 @@
 ﻿  ClassesLab1.cpp
 C:\fedorin-labs\ClassesLab1\ClassesLab1\ClassesLab1.cpp(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  LongLong.cpp
+C:\fedorin-labs\ClassesLab1\ClassesLab1\LongLong.cpp(23,58): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab1\ClassesLab1\LongLong.cpp(31,63): warning C4018: >: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab1\ClassesLab1\LongLong.cpp(36,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab1\ClassesLab1\LongLong.cpp(57,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab1\ClassesLab1\LongLong.cpp(60,30): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
   ClassesLab1.vcxproj -> C:\fedorin-labs\ClassesLab1\Debug\ClassesLab1.exe
