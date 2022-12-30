@@ -6,7 +6,7 @@ protected:
 	unsigned long NegativePart = 0;
 public:
 	LongLong(long num); //Done
-	void plus(LongLong num);//
+	void plus(LongLong num);//Done
 	void minus(LongLong num);//Done
 	void multi(LongLong num);//Done
 	void division(LongLong num);//
