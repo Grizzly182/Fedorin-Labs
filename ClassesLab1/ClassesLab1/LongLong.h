@@ -9,7 +9,7 @@ public:
 	void plus(LongLong num);//Done
 	void minus(LongLong num);//Done
 	void multi(LongLong num);//Done
-	void division(LongLong num);//
+	void division(LongLong num);//Done
 	void Display();//Done
 	unsigned long getPositivePart();//Done
 	unsigned long getNegativePart();//Done

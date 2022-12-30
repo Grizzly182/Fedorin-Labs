@@ -93,6 +93,26 @@ void LongLong::multi(LongLong num)
 #pragma region division
 void LongLong::division(LongLong num)
 {
+	if (num.getSingleNumber() == 0) {
+		std::cout << "Делить на ноль нельзя!" << std::endl;
+		return;
+	}
+
+	long first;
+	long second;
+
+	this->getNegativePart() > 0 ? first = 0 - this->NegativePart : first = this->PositivePart;
+	num.getNegativePart() > 0 ? second = 0 - num.getNegativePart() : second = num.getPositivePart();
+
+	long result = first / second;
+	if (result > 0) {
+		this->PositivePart = result;
+		this->NegativePart = 0;
+	}
+	else {
+		this->NegativePart = abs(result);
+		this->PositivePart = 0;
+	}
 }
 #pragma endregion
 void LongLong::Display()
