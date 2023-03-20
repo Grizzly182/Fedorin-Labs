@@ -16,7 +16,6 @@ LongLong::LongLong(long num)
 void LongLong::plus(LongLong num)
 {
 	long number = num.getSingleNumber();
-	num.getNegativePart() > 0 ? number = 0 - number : number = number;
 	if (this->NegativePart > 0 && number < 0) {
 		this->NegativePart += abs(number);
 	}
@@ -29,6 +28,11 @@ void LongLong::plus(LongLong num)
 		this->PositivePart = remaining;
 	}
 	else if (this->PositivePart > 0 && number < 0 && abs(number) > this->PositivePart) {
+		unsigned long remaining = abs(number) - this->PositivePart;
+		this->PositivePart = 0;
+		this->NegativePart = remaining;
+	}
+	else if (this->PositivePart < abs(number) && number < 0) {
 		unsigned long remaining = abs(number) - this->PositivePart;
 		this->PositivePart = 0;
 		this->NegativePart = remaining;
@@ -118,10 +122,10 @@ void LongLong::division(LongLong num)
 void LongLong::Display()
 {
 	if (this->NegativePart > 0) {
-		std::cout << '-' << this->NegativePart;
+		std::cout << '-' << this->NegativePart << std::endl;
 	}
 	else {
-		std::cout << this->PositivePart;
+		std::cout << this->PositivePart << std::endl;
 	}
 }
 
@@ -135,7 +139,10 @@ unsigned long LongLong::getNegativePart()
 	return this->NegativePart;
 }
 
-unsigned long LongLong::getSingleNumber()
+long LongLong::getSingleNumber()
 {
-	return this->PositivePart + this->NegativePart;
+	if (this->getNegativePart() > 0) {
+		return 0 - this->getNegativePart();
+	}
+	return this->getPositivePart();
 }

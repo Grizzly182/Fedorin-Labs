@@ -1,0 +1,8 @@
+C:\fedorin-labs\OOPTraining\bin\Debug\OOPTraining.exe.config
+C:\fedorin-labs\OOPTraining\bin\Debug\OOPTraining.exe
+C:\fedorin-labs\OOPTraining\bin\Debug\OOPTraining.pdb
+C:\fedorin-labs\OOPTraining\obj\Debug\OOPTraining.csproj.AssemblyReference.cache
+C:\fedorin-labs\OOPTraining\obj\Debug\OOPTraining.csproj.SuggestedBindingRedirects.cache
+C:\fedorin-labs\OOPTraining\obj\Debug\OOPTraining.csproj.CoreCompileInputs.cache
+C:\fedorin-labs\OOPTraining\obj\Debug\OOPTraining.exe
+C:\fedorin-labs\OOPTraining\obj\Debug\OOPTraining.pdb

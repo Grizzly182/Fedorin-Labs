@@ -22,23 +22,24 @@ void ShowMenu() {
 		<< "\t6) Выход" << endl;
 }
 
-void PrintGuestsAmount(Meetup meetup) {
-	cout << "Приглашено " << meetup.Size() << " гостя(-ей)" << endl;
+void PrintGuestsAmount(Meetup* meetup) {
+	cout << "Приглашено " << meetup->Size() << " гостя(-ей)" << endl;
 }
 
-void InviteRandomGuests(Meetup& meetup) {
-	meetup.Push(Guest("Михаил", "Белоусов", Gender::Male));
-	meetup.Push(Guest("Дарья", "Поздеева", Gender::Female));
-	meetup.Push(Guest("Светлана", "Никитина", Gender::Female));
-	meetup.Push(Guest("Даниил", "Заманов", Gender::Male));
-	meetup.Push(Guest("Галина", "Исмагилова", Gender::Female));
-	meetup.Push(Guest("Иван", "Урванцев", Gender::Male));
-	meetup.Push(Guest("Даниил", "Соковнин", Gender::Male));
-	meetup.Push(Guest("Матвей", "Третьяков", Gender::Male));
-	meetup.Push(Guest("Андрей", "Королёв", Gender::Male));
+void InviteRandomGuests(Meetup* meetup) {
+	meetup->Push(meetup, Guest("Михаил", Gender::Male));
+	meetup->Push(meetup, Guest("Дарья", Gender::Female));
+	meetup->Push(meetup, Guest("Светлана", Gender::Female));
+	meetup->Push(meetup, Guest("Даниил", Gender::Male));
+	meetup->Push(meetup, Guest("Галина", Gender::Female));
+	meetup->Push(meetup, Guest("Иван", Gender::Male));
+	meetup->Push(meetup, Guest("Даниил", Gender::Male));
+	meetup->Push(meetup, Guest("Матвей", Gender::Male));
+	meetup->Push(meetup, Guest("Андрей", Gender::Male));
+	meetup->Push(meetup, Guest("Владимир", Gender::Male));
 }
 
-void InviteTo(Meetup &meetup) {
+void InviteTo(Meetup* meetup) {
 	bool Break = false;
 	bool isOk = false;
 	cout << "Введите имя и фамилию того, кого хотите пригласить.(Введите \'0\' для отмены)\n";
@@ -83,13 +84,12 @@ void InviteTo(Meetup &meetup) {
 		}
 	} while (!isOk);
 
-
 	cout << "\nПол(Введите цифру):\n1) Женский\n2) Мужской\n0) Отмена" << endl;
 	int gender = 3;
 	do {
 		isOk = true;
 		cin >> gender;
-		if (cin.fail() || gender > 2 || gender <=-1 || cin.peek() == '.') {
+		if (cin.fail() || gender > 2 || gender <= -1 || cin.peek() == '.') {
 			isOk = false;
 			cout << "Введите корректную цифру!" << endl;
 			cin.clear();
@@ -109,38 +109,25 @@ void InviteTo(Meetup &meetup) {
 	case 2:
 		_gender = Gender::Male;
 		break;
+	default:
+		_gender = Gender::Male;
+		break;
 	}
 
-	Guest newGuest = Guest(name, surname, _gender);
-	meetup.Push(newGuest);
+	Guest newGuest = Guest(name, _gender);
+	meetup->Push(meetup, newGuest);
 }
 
-void PrintAllGuests(Meetup meetup) {
-	int i = 0;
-	Meetup temp = meetup;
-	while (!temp.IsEmpty()) {
-		i++;
-		Guest guest = temp.Top();
-		string gender;
-		switch (guest.gender) {
-		case Gender::Female:
-			gender = "Жен.";
-			break;
-		case Gender::Male:
-			gender = "Муж.";
-			break;
-		}
-		cout << i << ". " << guest.Name << " " << guest.Surname << "\t " << gender << endl;
-		temp.Pop();
-	}
+void PrintAllGuests(Meetup* meetup) {
+	meetup->ShowElements(meetup);
 }
 
 int main()
 {
+	setlocale(LC_ALL, "ru");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	setlocale(LC_ALL, "ru");
-	Meetup meetup;
+	Meetup* meetup = new Meetup;
 	InviteRandomGuests(meetup);
 	while (true) {
 		system("cls");
@@ -164,8 +151,8 @@ int main()
 				InviteTo(meetup);
 				break;
 			case 2:
-				if (!meetup.IsEmpty()) {
-					meetup.Pop();
+				if (!meetup->IsEmpty()) {
+					//meetup->Pop(&meetup);
 					system("pause");
 					break;
 				}
@@ -175,8 +162,8 @@ int main()
 					break;
 				}
 			case 3:
-				if (!meetup.IsEmpty()) {
-					meetup.ClearStack();
+				if (!meetup->IsEmpty()) {
+					meetup->ClearStack(&meetup);
 					break;
 				}
 				else
@@ -187,14 +174,14 @@ int main()
 				}
 				break;
 			case 4:
-				if (!meetup.IsEmpty()) {
+				if (!meetup->IsEmpty()) {
 					PrintGuestsAmount(meetup);
 					cout << '\n';
 					PrintAllGuests(meetup);
 					system("pause");
 					break;
 				}
-				else 
+				else
 				{
 					cout << "Список гостей пуст." << endl;
 					system("pause");

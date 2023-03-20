@@ -1,0 +1,5 @@
+﻿  tempLab2.cpp
+C:\fedorin-labs\tempLab2\tempLab2.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\fedorin-labs\tempLab2\tempLab2.cpp(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\fedorin-labs\tempLab2\Rational.h(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  tempLab2.vcxproj -> C:\fedorin-labs\tempLab2\x64\Debug\tempLab2.exe

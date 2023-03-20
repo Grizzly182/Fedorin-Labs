@@ -1,0 +1,30 @@
+﻿  ClassesLab2.cpp
+C:\fedorin-labs\ClassesLab2\ClassesLab2.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\fedorin-labs\ClassesLab2\ClassesLab2.cpp(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(22,58): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(30,63): warning C4018: >: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(35,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(40,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(61,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(64,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\ClassesLab2.cpp(3,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  LongLong.cpp
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(22,58): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(30,63): warning C4018: >: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(35,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(40,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(61,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ClassesLab2\LongLong.cpp(64,30): warning C4018: <: несоответствие типов со знаком и без знака
+  Rational.cpp
+  Создание кода...
+LongLong.obj : error LNK2005: "public: __cdecl LongLong::LongLong(long)" (??0LongLong@@QEAA@J@Z) уже определен в ClassesLab2.obj
+LongLong.obj : error LNK2005: "public: void __cdecl LongLong::Display(void)" (?Display@LongLong@@QEAAXXZ) уже определен в ClassesLab2.obj
+LongLong.obj : error LNK2005: "public: void __cdecl LongLong::division(class LongLong)" (?division@LongLong@@QEAAXV1@@Z) уже определен в ClassesLab2.obj
+LongLong.obj : error LNK2005: "public: bool __cdecl LongLong::equals(class LongLong)" (?equals@LongLong@@QEAA_NV1@@Z) уже определен в ClassesLab2.obj
+LongLong.obj : error LNK2005: "public: unsigned long __cdecl LongLong::getNegativePart(void)" (?getNegativePart@LongLong@@QEAAKXZ) уже определен в ClassesLab2.obj
+LongLong.obj : error LNK2005: "public: unsigned long __cdecl LongLong::getPositivePart(void)" (?getPositivePart@LongLong@@QEAAKXZ) уже определен в ClassesLab2.obj
+LongLong.obj : error LNK2005: "public: long __cdecl LongLong::getSingleNumber(void)" (?getSingleNumber@LongLong@@QEAAJXZ) уже определен в ClassesLab2.obj
+LongLong.obj : error LNK2005: "public: void __cdecl LongLong::minus(class LongLong)" (?minus@LongLong@@QEAAXV1@@Z) уже определен в ClassesLab2.obj
+LongLong.obj : error LNK2005: "public: void __cdecl LongLong::multi(class LongLong)" (?multi@LongLong@@QEAAXV1@@Z) уже определен в ClassesLab2.obj
+LongLong.obj : error LNK2005: "public: void __cdecl LongLong::plus(class LongLong)" (?plus@LongLong@@QEAAXV1@@Z) уже определен в ClassesLab2.obj
+C:\fedorin-labs\ClassesLab2\x64\Debug\ClassesLab2.exe : fatal error LNK1169: обнаружен многократно определенный символ - один или более

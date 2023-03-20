@@ -1,5 +1,4 @@
 ﻿  ConsoleApplication1.cpp
-C:\Users\tiger\source\repos\ConsoleApplication1\ConsoleApplication1\Meetup.h(63,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\tiger\source\repos\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(54,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\tiger\source\repos\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(75,21): warning C4018: <: несоответствие типов со знаком и без знака
-  ConsoleApplication1.vcxproj -> C:\Users\tiger\source\repos\ConsoleApplication1\Debug\ConsoleApplication1.exe
+C:\fedorin-labs\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(55,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\fedorin-labs\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(76,21): warning C4018: <: несоответствие типов со знаком и без знака
+  ConsoleApplication1.vcxproj -> C:\fedorin-labs\ConsoleApplication1\Debug\ConsoleApplication1.exe

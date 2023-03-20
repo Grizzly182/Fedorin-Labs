@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 enum Gender {
 	Male,
 	Female
@@ -12,61 +11,111 @@ enum Gender {
 
 struct Guest {
 public:
-	Guest(string _name, string _surname, Gender _gender) {
-		Name = _name;
-		Surname = _surname;
-		gender = _gender;
+	Guest() {};
+	Guest(string _name, Gender _gender) {
+		this->Name = _name;
+		this->Gender = _gender;
 	}
 
 	string Name;
-	string Surname;
-	Gender gender;
+	Gender Gender;
 } typedef Guest;
 
 struct Meetup {
 public:
-	void Push(Guest guest) {
-		Guests.push(guest);
-	}
+	Meetup();
 
-	bool IsEmpty() {
-		return Guests.empty();
-	}
+	Meetup* Push(Meetup*, Guest);
+	void ShowElements(Meetup*);
+	bool IsEmpty();
+	void Pop(Meetup**);
+	void ClearStack(Meetup** p);
+	int Size();
+	Guest guest;
+	Meetup* next;
+	int size = 0;
+}*begin = NULL, * t;
 
-	void Pop() {
-		Guests.pop();
-	}
+Meetup* Meetup::Push(Meetup* p, Guest in)
+{
+	Meetup* temp = new Meetup;
+	temp->guest = in;
+	temp->next = p;
+	size++;
+	return temp;
+}
 
-	void OrganizeGuestsOnTable() {
-		queue<Guest> temp = Guests;
-		Meetup Table;
-		Table.Push(temp.front()); //Добавляем за стол первого гостя
-		while (!IsEmpty())
+void Meetup::ShowElements(Meetup* p)
+{
+	Meetup* temp = p;
+	/*
+	while (temp != NULL)
+	{
+		string gender = "";
+		Guest guest = temp->guest;
+		Gender g = guest.Gender;
+		switch (g) {
+		case Gender::Female:
+			gender = "Жен.";
+			break;
+		case Gender::Male:
+			gender = "Муж.";
+			break;
+		}
+		cout << gender << endl;
+		temp = temp->next;
+	}*/
+	if (size != 0)
+	{
+		Meetup* temp = p;
+		cout << "( ";
+		while (temp->next != NULL)
 		{
-			
+			cout << temp->guest.Name << ", ";
+			temp = temp->next;
 		}
+
+		cout << temp->guest.Name << " )\n";
 	}
+}
 
-	Guest Back() {
-		return Guests.back();
+Meetup::Meetup() {
+	size = 0;
+}
+/*void PushELements(Stack* p, string arr[10])
+{
+	Stack* t = p;
+	for (int i = 0; t != NULL; i++)
+	{
+		arr[i] = t->info;
+		t = t->next;
 	}
+}*/
 
-	Guest Top() {
-		return Guests.front();
+bool Meetup::IsEmpty() {
+	return size == 0;
+}
+
+//TODO: Ошибка чтения памяти
+void Meetup::Pop(Meetup** p) {
+	while (*p != NULL && (*p)->next != NULL)
+	{
+		t = *p;
+		*p = (*p)->next;
+		delete t;
+		size--;
 	}
+}
 
-	int Size() {
-		return Guests.size();
-	}
+void OrganizeGuestsOnTable() {
+	queue<Guest> temp;
+	Meetup Table;
+}
 
-	void ClearStack() {
-		for (int i = 0; i < Guests.size(); i++) {
-			Pop();
-			
-		}
-	}
+int Meetup::Size() {
+	return size;
+}
 
-private:
-	queue<Guest> Guests;
-
-} typedef Meetup;
+void Meetup::ClearStack(Meetup** p) {
+	*p = new Meetup;
+}
